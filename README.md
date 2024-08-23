@@ -42,3 +42,14 @@
 ## 3D-Modell:
 
 [Fotograf Action Shot auf Cults3D](https://cults3d.com/:1216523)
+
+
+<br>
+
+## Fragen? 🔥
+
+Falls etwas nicht funktioniert, **nicht in Panik geraten!** Wenn es brennt (hoffentlich nur im übertragenen Sinne 🧯):
+
+- **Schritt 1:** Entspanne dich.
+- **Schritt 2:** Atme tief durch.
+- **Schritt 3:** Stelle deine Frage auf [GitHub Issues](https://github.com/bastelpingu/Driftblitz/issues) und wir werden das Feuer gemeinsam löschen! 🚒🔥
