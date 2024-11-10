@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driftblitz</title>
+    <style>
+        #content-en, #content-de { display: none; }
+    </style>
+</head>
+<body>
+    <h1>Driftblitz</h1>
+    <p>Choose language:</p>
+    <select id="language-select">
+        <option value="en">English</option>
+        <option value="de">Deutsch</option>
+    </select>
+
+    <div id="content-en">
+        <h2>Welcome to Driftblitz</h2>
+        <p>This is the English version of the page.</p>
+    </div>
+
+    <div id="content-de">
+        <h2>Willkommen bei Driftblitz</h2>
+        <p>Dies ist die deutsche Version der Seite.</p>
+    </div>
+
+    <script>
+        const languageSelect = document.getElementById('language-select');
+        const contentEn = document.getElementById('content-en');
+        const contentDe = document.getElementById('content-de');
+
+        function updateContent() {
+            const language = languageSelect.value;
+            contentEn.style.display = language === 'en' ? 'block' : 'none';
+            contentDe.style.display = language === 'de' ? 'block' : 'none';
+        }
+
+        languageSelect.addEventListener('change', updateContent);
+        updateContent();
+    </script>
+</body>
+</html>
