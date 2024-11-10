@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <strong style="font-size:24px;">Driftblitz</strong>
+  <strong style="font-size:224px;">Driftblitz</strong>
 </p>
 
 
