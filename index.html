@@ -2,43 +2,566 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Driftblitz 📸</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Driftblitz</title>
+    <!-- Favicon -->
+    <link rel="icon" href="fav.png" type="image/png">
+    <!-- CSS Styles -->
     <style>
-        #content-en, #content-de { display: none; }
+ /* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #2b2b2b;
+    color: #f0f0f0;
+    line-height: 1.8;
+    padding: 20px;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #3a3a3a;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1, h2, h3 {
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+ul, ol {
+    margin-bottom: 15px;
+    padding-left: 1.5em;
+}
+
+li {
+    margin-bottom: 0.5em;
+}
+
+a {
+    color: #76c7c0;
+    text-decoration: none;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+a:hover, a:focus {
+    color: #a0e7e5;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #4da9a6;
+}
+
+a:visited {
+    color: #5aa9a6;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.language-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+.language-toggle button {
+    padding: 5px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    background-color: #76c7c0;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.language-toggle button:hover {
+    background-color: #a0e7e5;
+}
+
+.content-section {
+    display: none;
+}
+
+.footer {
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: 1px solid #555;
+    color: #ccc;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+pre, code {
+    background-color: #444;
+    color: #f8f8f2;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    overflow-x: auto;
+}
+
+blockquote {
+    border-left: 4px solid #76c7c0;
+    padding-left: 1em;
+    color: #cccccc;
+    margin: 1.5em 0;
+    background-color: #3a3a3a;
+    border-radius: 4px;
+}
+
+/* Weitere vorhandene Stile ... */
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    .language-toggle {
+        position: relative;
+        top: auto;
+        right: auto;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .language-toggle button {
+        padding: 5px 8px;
+        margin-left: 3px;
+        font-size: 0.9em;
+    }
+}
+
+/* Scrollbar Styling for Webkit Browsers */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #3a3a3a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #5a5a5a;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4a4a4a;
+}
+
+/* Additional Styling */
+.section {
+    margin-bottom: 30px;
+}
+
+.section img {
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 20px auto;
+}
+
+.license, .privacy {
+    font-size: 0.8em;
+}
+
+        }
     </style>
 </head>
 <body>
-    <h1>Driftblitz</h1>
-    <p>Choose language:</p>
-    <select id="language-select">
-        <option value="en">English</option>
-        <option value="de">Deutsch</option>
-    </select>
-
-    <div id="content-en">
-        <h2>Welcome to Driftblitz</h2>
-        <p>This is the English version of the page.</p>
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button onclick="switchLanguage('de')">Deutsch</button>
+        <button onclick="switchLanguage('en')">English</button>
     </div>
 
-    <div id="content-de">
-        <h2>Willkommen bei Driftblitz</h2>
-        <p>Dies ist die deutsche Version der Seite.</p>
+    <div class="container">
+        <!-- Content in German -->
+        <div id="content-de" class="content-section">
+            <h1 style="text-align: center; color: #ffffff;">Driftblitz 📸</h1>
+            <img src="pic.png" alt="Driftblitz Logo" style="display: block; margin: 25px auto; width: 75%; max-width: 200px; height: auto;">
+            <img src="vid.gif" alt="Projekt Animation" style="display: block; margin: 20px auto; width: 75%; max-width: 100%; height: auto;">
+            
+            <p>Willkommen zum Driftblitz-Projekt! 🌍 Dieses ESP32-basierte Projekt wurde entwickelt, um dir eine 🧰 einfache und benutzerfreundliche Lösung zu bieten, ohne dass du dich mit komplizierter Software herumschlagen musst. Mit unserem 🌐 Online Firmware-Flasher kannst du deinen ESP32 direkt über den Browser flashen, ohne zusätzliche Software wie die Arduino IDE installieren zu müssen. Egal ob du ein 💻 IT-Neuling oder ein erfahrener Entwickler bist, diese Anleitung führt dich Schritt für Schritt durch den 📈 supereinfachen Installationsprozess.</p>
+
+            <!-- Inhaltsverzeichnis -->
+            <h2>Inhaltsverzeichnis</h2>
+            <ul>
+                <li><a href="#features-de">Features</a></li>
+                <li><a href="#hardware-de">Benötigte Hardware</a></li>
+                <li><a href="#schaltplan-de">Schaltplan</a></li>
+                <li><a href="#installation-de">Installation</a></li>
+                <li><a href="#benutzung-de">Benutzung</a></li>
+                <li><a href="#faq-de">FAQ</a></li>
+                <li><a href="#support-de">Support</a></li>
+                <li><a href="#3d-modell-de">3D-Modell</a></li>
+                <li><a href="#beitragen-de">Wie du beitragen kannst</a></li>
+                <li><a href="#lizenz-de">Lizenz</a></li>
+            </ul>
+
+            <!-- Features Section -->
+            <div class="section">
+                <h2 id="features-de">Features</h2>
+                <ul>
+                    <li><strong>Einfacher Online-Flasher</strong>: Flashe deinen ESP32 direkt über unsere Webseite, ohne zusätzliche Software zu installieren.</li>
+                    <li><strong>Einfache Pin-Konfiguration</strong>: Stelle die Pins nach deinen Bedürfnissen ein.</li>
+                    <li><strong>Sensorüberwachung</strong>: Überprüft automatisch, ob der Sensor korrekt angeschlossen ist.</li>
+                    <li><strong>Benutzerfreundliche Weboberfläche</strong>: Greife über deinen Browser auf alle Einstellungen zu.</li>
+                    <li><strong>Unterstützte Boards</strong>: ESP32, ESP32-S2, ESP32-S3, ESP32-C3 und ESP32-C6.</li>
+                </ul>
+            </div>
+
+            <!-- Benötigte Hardware Section -->
+            <div class="section">
+                <h2 id="hardware-de">Benötigte Hardware</h2>
+                <ul>
+                    <li>Mikrocontroller: 
+                        <a href="https://de.aliexpress.com/item/1005006782611731.html" target="_blank" rel="noopener noreferrer">
+                            ESP32-C6-Mini
+                        </a>
+                    </li>
+                    <li>Lasersensor: 
+                        <a href="https://de.aliexpress.com/item/1005005933411872.html" target="_blank" rel="noopener noreferrer">
+                            VL53L0X Time-of-Flight Sensor
+                        </a>
+                    </li>
+                    <li>LED + 200Ω Widerstand:
+                        <ul>
+                            <li>LED: 
+                                <a href="https://de.aliexpress.com/item/1005005064532042.html" target="_blank" rel="noopener noreferrer">
+                                    Mini LED: LED 0201 white
+                                </a>
+                            </li>
+                            <li>Widerstand: 
+                                <a href="https://de.aliexpress.com/item/1005006750101049.html" target="_blank" rel="noopener noreferrer">
+                                    200Ω Widerstand
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>USB-Kabel zur Verbindung des ESP32 mit dem Computer</li>
+                </ul>
+            </div>
+
+            <!-- Schaltplan Section -->
+            <div class="section">
+                <h2 id="schaltplan-de">Schaltplan</h2>
+                <img src="laserfrau_Steckplatine.png" alt="Schaltplan" />
+            </div>
+
+            <!-- Installation Section -->
+            <div class="section">
+                <h2 id="installation-de">Installation</h2>
+                
+                <h3>1. Hardware-Aufbau</h3>
+                <p>Bevor du die Firmware flashst, ist es wichtig, die Hardware korrekt zusammenzusetzen. Folge diesen Schritten, um sicherzustellen, dass alles richtig angeschlossen ist:</p>
+                <ul>
+                    <li>Verbinde den VL53L0X Sensor mit deinem ESP32:
+                        <ul>
+                            <li>SDA (Sensor) an ESP32 Pin22</li>
+                            <li>SCL (Sensor) an ESP32 Pin21</li>
+                            <li>VCC an 5V des ESP32</li>
+                            <li>GND an GND des ESP32</li>
+                        </ul>
+                    </li>
+                    <li>Schließe die LED mit dem 200Ω Widerstand an den gewünschten Pin (z.B. GPIO20) deines ESP32 an. Du kannst den Pin später in der Weboberfläche konfigurieren.</li>
+                    <li>Verwende ein USB-Kabel, um deinen ESP32 mit deinem Computer zu verbinden.</li>
+                    <li>Überprüfe alle Verbindungen doppelt, um sicherzustellen, dass alles korrekt angeschlossen ist.</li>
+                </ul>
+
+                <h3>2. Firmware flashen über die Webseite</h3>
+                <p>Nachdem die Hardware korrekt zusammengestellt ist, kannst du nun die Firmware auf deinen ESP32 flashen. Folge diesen einfachen Schritten:</p>
+                <ul>
+                    <li>Öffne die <a href="https://esp.bastelpingu.cc" target="_blank" rel="noopener noreferrer">Firmware-Flasher Webseite</a> in deinem Browser.</li>
+                    <li>Wähle "Driftblitz" aus der Firmware-Liste.</li>
+                    <li>Klicke auf "Verbinden" und folge den einfachen Anweisungen auf dem Bildschirm.</li>
+                    <li>Lehn dich zurück und warte, während die Firmware automatisch auf dein Board geflasht wird.</li>
+                </ul>
+                <img src="webtool.png" alt="Firmware Flashen" style="width: 100%; max-width: 600px; margin-top: 15px;" />
+            </div>
+
+            <!-- Benutzung Section -->
+            <div class="section">
+                <h2 id="benutzung-de">Benutzung</h2>
+                <h3>Zugriff auf die Weboberfläche</h3>
+                <ul>
+                    <li>Verbinde dich mit dem WLAN-Netzwerk namens <strong>DriftBlitz1</strong>. Das Passwort ist <strong>12345678</strong> (sofern du es nicht geändert hast).</li>
+                    <li>Öffne deinen Browser und gib <a href="http://driftblitz.local">http://driftblitz.local</a> oder die IP-Adresse deines ESP32 ein.</li>
+                    <li>Willkommen zur Driftblitz Weboberfläche! Hier kannst du alle Einstellungen bequem vornehmen.</li>
+                </ul>
+                <img src="webbenutz.png" alt="Weboberfläche" style="width: 100%; max-width: 600px;" />
+
+                <h3>Einstellungen anpassen</h3>
+                <ul>
+                    <li><strong>Distanz einstellen</strong>: Lege fest, ab welcher Entfernung die LED aktiviert wird.</li>
+                    <li><strong>Pin-Konfiguration</strong>: Passe die Pins für die LED und den Sensor nach deinen Bedürfnissen an.</li>
+                    <li><strong>Sensorstatus überprüfen</strong>: Stelle sicher, dass dein Sensor korrekt funktioniert.</li>
+                </ul>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="section">
+                <h2 id="faq-de">FAQ</h2>
+                <h3>Frage: Ich dachte, ich muss die Arduino Software installieren, um meinen ESP32 zu programmieren. Ist das nicht mehr nötig?</h3>
+                <p><strong>Antwort:</strong> Genau! Mit unserem Online Firmware-Flasher kannst du deinen ESP32 direkt über den Browser flashen, ohne die Arduino IDE oder andere Software installieren zu müssen. Das macht den Prozess viel einfacher und schneller.</p>
+
+                <h3>Frage: Mein Sensor wird nicht erkannt. Was kann ich tun?</h3>
+                <p><strong>Antwort:</strong> Überprüfe die Verkabelung des Sensors und stelle sicher, dass die Pins korrekt angeschlossen sind. Du kannst die Pin-Einstellungen in der Weboberfläche anpassen.</p>
+
+                <h3>Frage: Welche Boards werden unterstützt?</h3>
+                <p><strong>Antwort:</strong> Unsere Webseite unterstützt die folgenden ESP32-Modelle: ESP32, ESP32-S2, ESP32-S3, ESP32-C3 und ESP32-C6.</p>
+            </div>
+
+            <!-- Support Section -->
+            <div class="section">
+                <h2 id="support-de">Support</h2>
+                <p>Falls du Fragen hast oder Hilfe benötigst:</p>
+                <ol>
+                    <li>Entspanne dich.</li>
+                    <li>Atme tief durch.</li>
+                    <li>Erstelle ein <a href="https://github.com/bastelpingu/driftblitz/issues">GitHub Issue</a> und wir helfen dir so schnell wie möglich weiter!</li>
+                </ol>
+            </div>
+
+            <!-- 3D-Modell Section -->
+            <div class="section">
+                <h2 id="3d-modell-de">3D-Modell</h2>
+                <p>Fotograf Action Shot auf <a href="https://cults3d.com/de/modell-3d/verschiedene/photographer-action-shot">Cults3D</a></p>
+            </div>
+
+            <!-- Wie du beitragen kannst Section -->
+            <div class="section">
+                <h2 id="beitragen-de">Wie du beitragen kannst</h2>
+                <p>Beiträge sind willkommen! Erstelle einfach einen Fork dieses Repositories, nimm deine Änderungen vor und stelle einen Pull Request.</p>
+            </div>
+
+            <!-- Lizenz Section -->
+            <div class="section">
+                <h2 id="lizenz-de">Lizenz</h2>
+                <p>Dieses Projekt steht unter der <a href="https://opensource.org/licenses/MIT">MIT-Lizenz</a>. Weitere Informationen findest du in der LICENSE-Datei.</p>
+                <p>Viel Spaß mit Driftblitz! Wenn dir dieses Projekt gefällt, freue ich mich über einen ⭐ auf GitHub.</p>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <p>Made with ❤️ by <a href="https://github.com/bastelpingu">bastelpingu</a></p>
+                <p class="license">Dieses Projekt ist ein Hobbyprojekt und wird ohne Garantie bereitgestellt. Verwende es auf eigenes Risiko.</p>
+            </div>
+        </div>
+
+        <!-- Content in English -->
+        <div id="content-en" class="content-section">
+            <h1 style="text-align: center; color: #ffffff;">Driftblitz 📸</h1>
+            <img src="pic.png" alt="Driftblitz Logo" style="display: block; margin: 25px auto; width: 75%; max-width: 200px; height: auto;">
+            <img src="vid.gif" alt="Project Animation" style="display: block; margin: 20px auto; width: 75%; max-width: 100%; height: auto;">
+            
+            <p>Welcome to the Driftblitz project! 🌍 This ESP32-based project is designed to provide you with a 🧰 simple and user-friendly solution without dealing with complicated software. With our 🌐 Online Firmware Flasher, you can flash your ESP32 directly through the browser without installing additional software like the Arduino IDE. Whether you're a 💻 tech beginner or an experienced developer, this guide will take you step by step through the 📈 super easy installation process.</p>
+
+            <!-- Table of Contents -->
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#features-en">Features</a></li>
+                <li><a href="#hardware-en">Required Hardware</a></li>
+                <li><a href="#schematic-en">Schematic</a></li>
+                <li><a href="#installation-en">Installation</a></li>
+                <li><a href="#usage-en">Usage</a></li>
+                <li><a href="#faq-en">FAQ</a></li>
+                <li><a href="#support-en">Support</a></li>
+                <li><a href="#3d-model-en">3D Model</a></li>
+                <li><a href="#contribute-en">How to Contribute</a></li>
+                <li><a href="#license-en">License</a></li>
+            </ul>
+
+            <!-- Features Section -->
+            <div class="section">
+                <h2 id="features-en">Features</h2>
+                <ul>
+                    <li><strong>Simple Online Flasher</strong>: Flash your ESP32 directly through our website, no additional software required.</li>
+                    <li><strong>Easy Pin Configuration</strong>: Adjust the pins according to your needs.</li>
+                    <li><strong>Sensor Monitoring</strong>: Automatically checks if the sensor is connected correctly.</li>
+                    <li><strong>User-Friendly Web Interface</strong>: Access all settings through your browser.</li>
+                    <li><strong>Supported Boards</strong>: ESP32, ESP32-S2, ESP32-S3, ESP32-C3, and ESP32-C6.</li>
+                </ul>
+            </div>
+
+            <!-- Required Hardware Section -->
+            <div class="section">
+                <h2 id="hardware-en">Required Hardware</h2>
+                <ul>
+                    <li>Microcontroller: 
+                        <a href="https://de.aliexpress.com/item/1005006782611731.html" target="_blank" rel="noopener noreferrer">
+                            ESP32-C6-Mini
+                        </a>
+                    </li>
+                    <li>Laser Sensor: 
+                        <a href="https://de.aliexpress.com/item/1005005933411872.html" target="_blank" rel="noopener noreferrer">
+                            VL53L0X Time-of-Flight Sensor
+                        </a>
+                    </li>
+                    <li>LED + 200Ω Resistor:
+                        <ul>
+                            <li>LED: 
+                                <a href="https://de.aliexpress.com/item/1005005064532042.html" target="_blank" rel="noopener noreferrer">
+                                    Mini LED: LED 0201 white
+                                </a>
+                            </li>
+                            <li>Resistor: 
+                                <a href="https://de.aliexpress.com/item/1005006750101049.html" target="_blank" rel="noopener noreferrer">
+                                    200Ω Resistor
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>USB Cable to connect the ESP32 to your computer</li>
+                </ul>
+            </div>
+
+            <!-- Schematic Section -->
+            <div class="section">
+                <h2 id="schematic-en">Schematic</h2>
+                <img src="laserfrau_Steckplatine.png" alt="Schematic" />
+            </div>
+
+            <!-- Installation Section -->
+            <div class="section">
+                <h2 id="installation-en">Installation</h2>
+                
+                <h3>1. Hardware Setup</h3>
+                <p>Before flashing the firmware, it's important to assemble the hardware correctly. Follow these steps to ensure everything is connected properly:</p>
+                <ul>
+                    <li>Connect the VL53L0X sensor to your ESP32:
+                        <ul>
+                            <li>SDA (Sensor) to ESP32 Pin22</li>
+                            <li>SCL (Sensor) to ESP32 Pin21</li>
+                            <li>VCC to 5V on the ESP32</li>
+                            <li>GND to GND on the ESP32</li>
+                        </ul>
+                    </li>
+                    <li>Connect the LED with the 200Ω resistor to the desired pin (e.g., GPIO20) on your ESP32. You can configure the pin later in the web interface.</li>
+                    <li>Use a USB cable to connect your ESP32 to your computer.</li>
+                    <li>Double-check all connections to ensure everything is connected correctly.</li>
+                </ul>
+
+                <h3>2. Flash Firmware via Website</h3>
+                <p>Once the hardware is properly assembled, you can flash the firmware to your ESP32. Follow these simple steps:</p>
+                <ul>
+                    <li>Open the <a href="https://esp.bastelpingu.cc" target="_blank" rel="noopener noreferrer">Firmware Flasher website</a> in your browser.</li>
+                    <li>Select "Driftblitz" from the list of firmware options.</li>
+                    <li>Click on "Connect" and follow the easy on-screen instructions.</li>
+                    <li>Sit back and wait while the firmware is automatically flashed to your board.</li>
+                </ul>
+                <img src="webtool.png" alt="Firmware Flashing" style="width: 100%; max-width: 600px; margin-top: 15px;" />
+            </div>
+
+            <!-- Usage Section -->
+            <div class="section">
+                <h2 id="usage-en">Usage</h2>
+                <h3>Accessing the Web Interface</h3>
+                <ul>
+                    <li>Connect to the Wi-Fi network named <strong>DriftBlitz1</strong>. The password is <strong>12345678</strong> (unless you have changed it).</li>
+                    <li>Open your browser and navigate to <a href="http://driftblitz.local">http://driftblitz.local</a> or the IP address of your ESP32.</li>
+                    <li>Welcome to the Driftblitz Web Interface! Here you can conveniently adjust all settings.</li>
+                </ul>
+                <img src="webbenutz.png" alt="Web Interface" style="width: 100%; max-width: 600px;" />
+
+                <h3>Adjusting Settings</h3>
+                <ul>
+                    <li><strong>Set Distance</strong>: Define the distance at which the LED will activate.</li>
+                    <li><strong>Pin Configuration</strong>: Adjust the pins for the LED and sensor according to your needs.</li>
+                    <li><strong>Check Sensor Status</strong>: Ensure your sensor is functioning correctly.</li>
+                </ul>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="section">
+                <h2 id="faq-en">FAQ</h2>
+                <h3>Question: I thought I needed to install the Arduino software to program my ESP32. Is that no longer necessary?</h3>
+                <p><strong>Answer:</strong> Exactly! With our Online Firmware Flasher, you can flash your ESP32 directly through the browser without needing to install the Arduino IDE or other software. This makes the process much simpler and faster.</p>
+
+                <h3>Question: My sensor is not being recognized. What can I do?</h3>
+                <p><strong>Answer:</strong> Check the sensor wiring and ensure that the pins are connected correctly. You can adjust the pin settings in the web interface.</p>
+
+                <h3>Question: Which boards are supported?</h3>
+                <p><strong>Answer:</strong> Our website supports the following ESP32 models: ESP32, ESP32-S2, ESP32-S3, ESP32-C3, and ESP32-C6.</p>
+            </div>
+
+            <!-- Support Section -->
+            <div class="section">
+                <h2 id="support-en">Support</h2>
+                <p>If you have any questions or need assistance:</p>
+                <ol>
+                    <li>Relax.</li>
+                    <li>Take a deep breath.</li>
+                    <li>Create a <a href="https://github.com/bastelpingu/driftblitz/issues">GitHub Issue</a> and we will help you as soon as possible!</li>
+                </ol>
+            </div>
+
+            <!-- 3D Model Section -->
+            <div class="section">
+                <h2 id="3d-model-en">3D Model</h2>
+                <p>Photographer Action Shot on <a href="https://cults3d.com/en/3d-model/various/photographer-action-shot">Cults3D</a></p>
+            </div>
+
+            <!-- How to Contribute Section -->
+            <div class="section">
+                <h2 id="contribute-en">How to Contribute</h2>
+                <p>Contributions are welcome! Simply fork this repository, make your changes, and submit a pull request.</p>
+            </div>
+
+            <!-- License Section -->
+            <div class="section">
+                <h2 id="license-en">License</h2>
+                <p>This project is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a>. For more information, see the LICENSE file.</p>
+                <p>Enjoy Driftblitz! If you like this project, I would appreciate a ⭐ on GitHub.</p>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <p>Made with ❤️ by <a href="https://github.com/bastelpingu">bastelpingu</a></p>
+                <p class="license">This project is a hobby project and is provided without any warranty. Use it at your own risk.</p>
+            </div>
+        </div>
     </div>
 
+    <!-- JavaScript for Language Detection -->
     <script>
-        const languageSelect = document.getElementById('language-select');
-        const contentEn = document.getElementById('content-en');
-        const contentDe = document.getElementById('content-de');
-
-        function updateContent() {
-            const language = languageSelect.value;
-            contentEn.style.display = language === 'en' ? 'block' : 'none';
-            contentDe.style.display = language === 'de' ? 'block' : 'none';
+        function detectLanguage() {
+            const userLang = navigator.language || navigator.userLanguage;
+            return userLang.startsWith('de') ? 'de' : 'en';
         }
 
-        languageSelect.addEventListener('change', updateContent);
-        updateContent();
+        function switchLanguage(lang) {
+            document.getElementById('content-de').style.display = lang === 'de' ? 'block' : 'none';
+            document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        window.onload = function() {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            switchLanguage(savedLang || detectLanguage());
+        }
     </script>
 </body>
 </html>
