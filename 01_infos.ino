@@ -41,7 +41,6 @@ float getCPUTemperature() {
 
     // CPU-Temperatur auslesen
     cpuTemp = getCPUTemperature();
-    cpuTemp = getCPUTemperature();
     Serial.print(cpuTemp);
     Serial.println(" °C");
 
